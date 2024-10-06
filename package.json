@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "produce": "npm start tsc produce.ts",
-    "consumer": "npm start tsc consume.ts",
+    "start": "tsc -b && node dist/index.js",
+    "produce": "tsc -b && node dist/produce.js",
+    "consumer": "tsc -b && node dist/consume.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

@@ -2,7 +2,7 @@ import { Kafka } from "kafkajs";
 
 const kafka = new Kafka({
   clientId: "my-app",
-  brokers: ["localhost:9062"],
+  brokers: ["localhost:9092"],
 });
 
 const producer = kafka.producer();
@@ -10,10 +10,10 @@ const producer = kafka.producer();
 async function main() {
   await producer.connect();
   await producer.send({
-    topic: "quickstart-events",
+    topic: "payment",
     messages: [
       {
-        value: "hi there",
+        value: "hi there" + Math.random(),
       },
     ],
   });

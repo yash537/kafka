@@ -2,7 +2,7 @@ import { Kafka } from "kafkajs";
 
 const kafka = new Kafka({
   clientId: "my-app",
-  brokers: ["localhost:9062"],
+  brokers: ["localhost:9092"],
 });
 
 const producer = kafka.producer();
@@ -29,6 +29,7 @@ async function main() {
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
       console.log({
+        partition,
         offset: message.offset,
         value: message?.value?.toString(),
       });
